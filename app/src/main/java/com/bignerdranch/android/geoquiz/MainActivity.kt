@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         falseButton = findViewById(R.id.false_button)
 
         trueButton.setOnClickListener { view: View ->
-            var aToast : Toast = Toast.makeText(
+            val aToast : Toast = Toast.makeText(
                     this,
                     R.string.correct_toast,
                     Toast.LENGTH_SHORT)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         falseButton.setOnClickListener { view: View ->
-            var aToast : Toast = Toast.makeText(
+            val aToast : Toast = Toast.makeText(
                     this,
                     R.string.incorrect_toast,
                     Toast.LENGTH_SHORT)
