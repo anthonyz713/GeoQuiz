@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             Question(R.string.question_americas, true),
             Question(R.string.question_asia, true))
 
+    private val answered = BooleanArray(questionBank.size)
     private var currentIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,8 +81,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer : Boolean){
+        if(answered[currentIndex] == true)
+            return
         val correctAnswer = questionBank[currentIndex].answer
-
         val messageResId = if (userAnswer == correctAnswer) {
             R.string.correct_toast
         } else {
@@ -89,5 +91,6 @@ class MainActivity : AppCompatActivity() {
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
                 .show()
+        answered[currentIndex] = true
     }
 }
