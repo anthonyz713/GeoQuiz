@@ -3,6 +3,7 @@ package com.bignerdranch.android.geoquiz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             Question(R.string.question_asia, true))
 
     private val answered = BooleanArray(questionBank.size)
+    private var totalCorrect = 0.0
     private var currentIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,16 +83,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer : Boolean){
-        if(answered[currentIndex] == true)
+        if(answered[currentIndex])
             return
         val correctAnswer = questionBank[currentIndex].answer
-        val messageResId = if (userAnswer == correctAnswer) {
-            R.string.correct_toast
+        var messageResId = 0
+        if (userAnswer == correctAnswer) {
+            messageResId = R.string.correct_toast
+            totalCorrect++
         } else {
-            R.string.incorrect_toast
+            messageResId = R.string.incorrect_toast
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
                 .show()
         answered[currentIndex] = true
+        calcScore()
+
+    }
+
+    private fun calcScore(){
+        for(questionAnswered in answered)
+        {
+            if(!questionAnswered)
+                return
+        }
+        val score = (totalCorrect/questionBank.size) * 100
+        val scoreMsg = "Your Score: %.2f".format(score) + "%"
+
+        val scoreToast : Toast = Toast.makeText(
+                this,
+                scoreMsg,
+                Toast.LENGTH_SHORT
+        )
+        scoreToast.setGravity(Gravity.TOP, 0, 0)
+        scoreToast.show()
     }
 }
