@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">GeoQuiz</string>
-    <string name="question_australia">Canberra is the capital of Australia.</string>
-    <string name="question_oceans">The Pacific Ocean is larger than
-the Atlantic Ocean.</string>
-    <string name="question_mideast">The Suez Canal connects the Red Sea
-        and the Indian Ocean.</string>
-    <string name="question_africa">The source of the Nile River is in Egypt.</string>
-    <string name="question_americas">The Amazon River is the longest river
-        in the Americas.</string>
-    <string name="question_asia">Lake Baikal is the world\'s oldest and deepest
-        freshwater lake.</string>
+    <string name="question_SB50">Vic Fangio was the head coach of the Denver Broncos
+        when they beat the Carolina Panthers in Super Bowl 50.</string>
+    <string name="question_SB51">Super Bowl LI, featuring the Atlanta Falcons
+        and New England Patriots, was the first Super Bowl that went to overtime.</string>
+    <string name="question_SB52">The New England Patriots beat the Philadelphia Eagles
+        to win Super Bowl LII.</string>
+    <string name="question_SB53">Tom Brady was awarded the Super Bowl MVP Award
+        for Super Bowl LIII after the New England Patriots beat the Los Angeles Rams.</string>
+    <string name="question_SB54">The Kansas City Chiefs beat the San Francisco 49ers
+        to win Super Bowl LIV.</string>
+    <string name="question_SB55">The Tampa Bay Buccaneers beat the Kansas City Chiefs
+        to win Super Bowl LV.</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
