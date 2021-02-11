@@ -28,4 +28,8 @@ class QuizViewModel : ViewModel() {
     fun moveToNext() {
         currentIndex = (currentIndex + 1) % questionBank.size
     }
+
+    fun updateCheater() {
+        isCheater = true
+    }
 }
