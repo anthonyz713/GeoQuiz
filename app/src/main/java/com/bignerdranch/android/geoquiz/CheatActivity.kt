@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
@@ -22,8 +21,8 @@ class CheatActivity : AppCompatActivity() {
 
     private var answerIsTrue = false
 
-    private val quizViewModel: QuizViewModel by lazy {
-        ViewModelProviders.of(this).get(QuizViewModel::class.java)
+    private val cheatViewModel: CheatViewModel by lazy {
+        ViewModelProviders.of(this).get(CheatViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,7 @@ class CheatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cheat)
 
         val provider: ViewModelProvider = ViewModelProviders.of(this)
-        val quizViewModel = provider.get(QuizViewModel::class.java)
+        val cheatViewModel = provider.get(CheatViewModel::class.java)
 
         answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
         answerTextView = findViewById(R.id.answer_text_view)
@@ -42,7 +41,7 @@ class CheatActivity : AppCompatActivity() {
                 else -> R.string.false_button
             }
             answerTextView.setText(answerText)
-            quizViewModel.updateCheater()
+            cheatViewModel.updateCheater()
             setAnswerShownResult()
         }
         setAnswerShownResult()
@@ -50,7 +49,7 @@ class CheatActivity : AppCompatActivity() {
 
     private fun setAnswerShownResult() {
         val data = Intent().apply {
-            putExtra(EXTRA_ANSWER_SHOWN, quizViewModel.isCheater)
+            putExtra(EXTRA_ANSWER_SHOWN, cheatViewModel.isCheater)
         }
         setResult(Activity.RESULT_OK, data)
     }
